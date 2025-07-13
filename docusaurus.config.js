@@ -18,15 +18,15 @@ const config = {
   plugins: [path.resolve(__dirname, 'src/plugins/gather-files.js'), 'plugin-image-zoom'],
 
   // Set the production url of your site here
-  url: 'https://vrc.school/',
+  url: 'https://vrcschool.porop.dev/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'VRLabs', // Usually your GitHub org/user name.
-  projectName: 'VRCSchool', // Usually your repo name.
+  organizationName: 'poropopo', // Usually your GitHub org/user name.
+  projectName: 'VRCSchool-jp', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -35,8 +35,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ja',
+    locales: ['ja'],
   },
 
   presets: [
@@ -51,7 +51,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/VRLabs/VRCSchool/tree/main',
+            'https://github.com/poropopo/VRCSchool-jp/tree/main',
         },
         theme: {
           customCss: './src/css/custom.css',
