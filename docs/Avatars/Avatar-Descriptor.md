@@ -1,5 +1,5 @@
 ---
-title: The Avatar Descriptor
+title: Avatar Descriptor
 sidebar_position: 4
 slug: Avatar-Descriptor
 last_edited: 2024-03-31T08:54:00.000Z
@@ -16,34 +16,34 @@ Contributors: [Jellejurre](https://jellejurre.dev/), [JustSleightly](https://vrc
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-The VRC Avatar Descriptor is a component that makes a Unity GameObject an Avatar. 
+VRC Avatar Descriptorは、UnityのGameObjectをアバターにするコンポーネントです。
 
 
 
-To add it to your avatar, click the `Add Component` button, type `VRC Avatar Descriptor` in the search box at the top and select the `VRC Avatar Descriptor` script.
+アバターに追加するには、`Add Component`ボタンをクリックし、上部の検索ボックスに`VRC Avatar Descriptor`と入力して、`VRC Avatar Descriptor`スクリプトを選択します。
 
 
 
-Doing this also automatically adds the `Pipeline Manager` script if it is not present yet.
+これを行うと、まだ存在しない場合は`Pipeline Manager`スクリプトも自動的に追加されます。
 
 
 
-Note that an Animator has to be present on the GameObject for the Avatar to be uploadable, and the Model needs to have a Humanoid Rig for the Avatar to be able to use the default (humanoid) animations.
+アバターをアップロードするには、GameObjectにAnimatorが存在する必要があり、モデルがデフォルト（humanoid）アニメーションを使用できるようにするには、Humanoid Rigを持つ必要があることに注意してください。
 
 
 
-The Avatar Descriptor is the place where you tell VRChat how your avatar should work in game. Including: 
+Avatar Descriptorは、ゲーム内でアバターがどのように動作するかをVRChatに伝える場所です。以下が含まれます：
 
 
-- Where your viewpoint should be
-- How your lips should move
-- How your eyes should move
-- How the avatar is animated (think movement and toggles and such)
-- How your VRC Expression Menus (circle menus) should work
-- How the VRC Physbone Colliders on your avatar should be set up
+- 視点の位置
+- 口の動き方
+- 目の動き方
+- アバターのアニメーション方法（動きやトグルなど）
+- VRC Expression Menus（円形メニュー）の動作方法
+- アバター上のVRC Physbone Collidersの設定方法
 
 
-This article will go over how you can customize all this in detail.
+この記事では、これらすべてを詳細にカスタマイズする方法について説明します。
 
 
 </div><div className='notion-spacer'></div>
@@ -51,7 +51,7 @@ This article will go over how you can customize all this in detail.
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-![How to add the VRC Avatar Descriptor to your avatar](./Avatar-Descriptor.e3699c4a-cf7e-4813-ac2e-5a594fe61924.png)<br/><GreyItalicText>How to add the VRC Avatar Descriptor to your avatar</GreyItalicText>
+![VRC Avatar Descriptorをアバターに追加する方法](./Avatar-Descriptor.e3699c4a-cf7e-4813-ac2e-5a594fe61924.png)<br/><GreyItalicText>VRC Avatar Descriptorをアバターに追加する方法</GreyItalicText>
 
 
 </div><div className='notion-spacer'></div>
@@ -68,12 +68,12 @@ This article will go over how you can customize all this in detail.
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-The view position is a position in global space which decides where your eyes should be. This location is shown as a Gizmo in the form of a gray ball. If you don’t see this gray ball, this means your gizmos are disabled in the scene view. To move it, press the `Edit` button and move the handles that show up. When done, press the green `Return` button.
+View Positionは、目の位置を決定するグローバル空間内の位置です。この位置は、灰色のボールの形でGizmoとして表示されます。この灰色のボールが見えない場合は、シーンビューでGizmosが無効になっていることを意味します。移動するには、`Edit`ボタンを押して表示されるハンドルを動かします。完了したら、緑色の`Return`ボタンを押します。
 
 
 
 
-The way this view position is used in VRChat is it plays the T-Pose controller, then it compares the location of the view position to the head bone, and saves this offset. This offset is what decides where your view point should be when moving around. 
+VRChatでこのView Positionが使用される方法は、T-Pose Controllerを再生し、View Positionの位置とヘッドボーンを比較して、このオフセットを保存します。このオフセットが、移動時の視点の位置を決定します。
 
 
 </div><div className='notion-spacer'></div>
@@ -90,7 +90,7 @@ The way this view position is used in VRChat is it plays the T-Pose controller, 
 
 :::tip
 
-If your view position is in the wrong spot, you can put the VRChat sample T-Pose Controller in the Animator’s Controller Slot, go into play mode, and position the View Position in the right place.
+View Positionが間違った場所にある場合は、VRChatサンプルのT-Pose ControllerをAnimatorのController Slotに配置し、プレイモードに入って、View Positionを正しい場所に配置できます。
 
 :::
 
@@ -107,7 +107,7 @@ If your view position is in the wrong spot, you can put the VRChat sample T-Pose
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-Lip Sync controls the way the avatar’s mouth moves when you talk. There are multiple systems that can be chosen to control this. The Lip Sync header shows a dropdown where you can select the system you want.
+Lip Syncは、話すときのアバターの口の動きを制御します。これを制御するために選択できる複数のシステムがあります。Lip Syncヘッダーには、使用したいシステムを選択できるドロップダウンが表示されます。
 
 
 </div><div className='notion-spacer'></div>
@@ -129,7 +129,7 @@ Lip Sync controls the way the avatar’s mouth moves when you talk. There are mu
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-This is the default value, and has no lip sync attached to it. This only shows the `Auto Detect` button which, when pressed, auto detects the type of Lip Sync you want.
+これはデフォルト値で、リップシンクは付いていません。押すと使用したいLip Syncのタイプを自動検出する`Auto Detect`ボタンのみが表示されます。
 
 
 </div><div className='notion-spacer'></div>
@@ -152,23 +152,23 @@ This is the default value, and has no lip sync attached to it. This only shows t
 
 
 
-This is the most often used system. It allows you to specify a mesh to have Blend Shapes modified to match the viseme VRChat estimates your face to look like based on your audio.
+これは最もよく使用されるシステムです。オーディオに基づいてVRChatが推定する顔の見た目に合わせて、Blend Shapesを変更するメッシュを指定できます。
 
 
 
-It has a Skinned Mesh Renderer field where you specify the Skinned Mesh Renderer the have its Blend Shape changed, and when a Skinned Mesh Renderer component present, many Blend Shape dropdowns is shown, where you can select the Blend Shape to be used for every viseme. 
+Blend Shapeを変更するSkinned Mesh Rendererを指定するSkinned Mesh Rendererフィールドがあり、Skinned Mesh Rendererコンポーネントが存在する場合、多くのBlend Shapeドロップダウンが表示され、各visemeに使用するBlend Shapeを選択できます。
 
 
 
-VRChat tries to auto detect them based on the `v_[viseme]` or `vrc.v_[viseme]` being present in the name, as can be seen on the right.
+VRChatは、右側に示すように、名前に`v_[viseme]`または`vrc.v_[viseme]`が存在することに基づいて自動検出を試みます。
 
 
 
-VRChat animates the Built-In parameter `Viseme` from 0 to 14 based on the found value.
+VRChatは、見つかった値に基づいて組み込みパラメータ`Viseme`を0から14までアニメーションします。
 
 
 
-See **Advanced Details** below for the other Lip Sync Modes
+他のLip Syncモードについては、以下の**詳細設定**を参照してください。
 
 
 
@@ -194,11 +194,11 @@ See **Advanced Details** below for the other Lip Sync Modes
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-This is the section where you select how your avatar’s eyes look around while playing. It is disabled by default, showing only a big `Enable` button. Pressing this button will enable Eye Look for your avatar, and replace the Enable button with a Disable button, which disables Eye Look.
+これは、プレイ中にアバターの目がどのように見回すかを選択するセクションです。デフォルトでは無効になっており、大きな`Enable`ボタンのみが表示されます。このボタンを押すと、アバターのEye Lookが有効になり、EnableボタンがDisableボタンに置き換わり、Eye Lookを無効にします。
 
 
 
-When enabled, it shows three categories: General, Eyes and Eyelids, each of which have a little arrow which acts as a dropdown.
+有効にすると、General、Eyes、Eyelidsの3つのカテゴリが表示され、それぞれにドロップダウンとして機能する小さな矢印があります。
 
 
 </div><div className='notion-spacer'></div>
@@ -220,7 +220,7 @@ When enabled, it shows three categories: General, Eyes and Eyelids, each of whic
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-In the General tab, you can set how the avatar’s eyes move. It has two sliders: Calm-Excited and Shy-Confident. Calm-Excited decides how much the avatar’s eyes dash around, and Shy-Confident decides how much the avatar’s eyes look at people when talking to them.
+Generalタブでは、アバターの目の動き方を設定できます。Calm-ExcitedとShy-Confidentの2つのスライダーがあります。Calm-Excitedはアバターの目がどれだけ動き回るかを決定し、Shy-Confidentは話しているときにアバターの目がどれだけ人を見るかを決定します。
 
 
 </div><div className='notion-spacer'></div>
@@ -242,27 +242,27 @@ In the General tab, you can set how the avatar’s eyes move. It has two sliders
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-The Eyes tab has two sub-tabs, Transforms and Rotation States. In the Transforms tab, you can select a bone for each eye which will be rotated to perform the eye movements. Note that this shouldn’t be the same bones as set in the Eye bones in the Humanoid rig, or otherwise they won’t be able to be moved by the humanoid rig. 
+Eyesタブには、TransformsとRotation Statesの2つのサブタブがあります。Transformsタブでは、目の動きを実行するために回転される各目のボーンを選択できます。これは、Humanoid RigのEye bonesに設定されているボーンと同じであってはならないことに注意してください。そうでなければ、Humanoid Rigによって動かすことができません。
 
 
 
-Generally VRChat avatars come with two sets of bones, one set for the Humanoid Rig (pointing forward), and one for the Avatar Descriptor (pointing up). The reason the Avatar Descriptor ones are pointing up is because this means the default rotation is (0,0,0)
+一般的に、VRChatアバターには2セットのボーンが付属しています。1つはHumanoid Rig用（前方を向いている）、もう1つはAvatar Descriptor用（上を向いている）です。Avatar Descriptor用のボーンが上を向いている理由は、これによりデフォルトの回転が(0,0,0)になるためです。
 
 
 
-In the Rotation States tab you can set the rotation for the different eye movements (Straight, Up, Down, Right, Left) as x,y,z Euler Angles. You can press `Preview` to preview a rotation, and `Return` to stop previewing.
+Rotation Statesタブでは、異なる目の動き（Straight、Up、Down、Right、Left）の回転をx,y,z オイラー角として設定できます。`Preview`を押して回転をプレビューし、`Return`を押してプレビューを停止できます。
 
 
 
-If your bones are pointing up by default, (default rotation 0,0,0), you can use 0,0,0 as the Straight rotation, and offsets from that in the other fields corresponding to the right rotations. 
+ボーンがデフォルトで上を向いている場合（デフォルト回転0,0,0）、正面を向いた状態の回転として0,0,0を使用し、正しい回転に対応する他のフィールドでそれからのオフセットを使用できます。
 
 
 
-If your bones aren’t pointing up by default, (default rotation 0,0,0), you’ll have to use the default rotation of your eye bones as the Straight rotation, and offsets from that rotation in the other fields corresponding to the right rotations.
+ボーンがデフォルトで上を向いていない場合（デフォルト回転0,0,0）、目のボーンのデフォルト回転を正面を向いた状態の回転として使用し、正しい回転に対応する他のフィールドでその回転からのオフセットを使用する必要があります。
 
 
 
-If you press the chain symbol to the left of the Rotation States, it splits up into L(eft) and R(ight) and you can set the positions per eye. 
+Rotation Statesの左側にあるチェーンシンボルを押すと、L(eft)とR(ight)に分割され、目ごとに位置を設定できます。
 
 
 </div><div className='notion-spacer'></div>
@@ -284,11 +284,11 @@ If you press the chain symbol to the left of the Rotation States, it splits up i
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-The Eyelids tab controls how the avatar’s eyelids move, either through bones or through blendshapes.
+Eyelidsタブは、ボーンまたはBlend Shapesを通じてアバターのまぶたの動きを制御します。
 
 
 
-The Eyelid Type dropdown lets you select the type of eyelids you want. This can be either `Bones` or `Blendshapes` 
+Eyelid Typeドロップダウンでは、使用したいまぶたのタイプを選択できます。これは`Bones`または`Blendshapes`のいずれかです。
 
 
 
@@ -296,11 +296,11 @@ The Eyelid Type dropdown lets you select the type of eyelids you want. This can 
 
 
 
-The Blendshapes option allows you to select a mesh, and then select Blink, Looking Up and Looking Down blendshapes, which can be previewed and returned like the rest.
+Blendshapesオプションでは、メッシュを選択し、その後Blink、Looking Up、Looking DownのBlend Shapesを選択できます。これらは他のものと同様にプレビューして戻すことができます。
 
 
 
-See **Advanced Details** below for the other Eyelid Types
+他のEyelid Typesについては、以下の**詳細設定**を参照してください。
 
 
 </div><div className='notion-spacer'></div>
@@ -325,19 +325,19 @@ See **Advanced Details** below for the other Eyelid Types
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-This is the section where all the Animator Controllers get placed that handle all the logic of your avatar. More information on what these do and are supposed to do can be found at the [Playable Layers](/docs/Avatars/Playable-Layers) page. 
+これは、アバターのすべてのロジックを処理するAnimator Controllersが配置されるセクションです。これらが何をするか、何をすべきかについての詳細情報は、[Playable Layers](/docs/Avatars/Playable-Layers)ページで確認できます。
 
 
 
-By default this section is set by VRChat, but you can customize it by pressing the `Customize` button. The Playable Layers can be reset to their defaults by pressing the `Reset To Default` button. There are two sections: `Base` and `Special`. 
+デフォルトでは、このセクションはVRChatによって設定されていますが、`Customize`ボタンを押すことでカスタマイズできます。Playable Layersは`Reset To Default`ボタンを押すことでデフォルトにリセットできます。`Base`と`Special`の2つのセクションがあります。
 
 
 
-By default they are set to all their default controller, but you can click the `Default [layer name]` text to turn allow you to enter your own Animator Controller to customize them. If you want to go back to the default Animator Controller, you can press the `x` to the right of the Animator Controller. 
+デフォルトでは、すべてデフォルトのコントローラーに設定されていますが、`Default [layer name]`テキストをクリックして、独自のAnimator Controllerを入力してカスタマイズできます。デフォルトのAnimator Controllerに戻したい場合は、Animator Controllerの右側にある`x`を押すことができます。
 
 
 
-The default Animator Controllers can be found in the Avatar SDK under Samples.
+デフォルトのAnimator ControllersはAvatar SDKのSamplesの下にあります。
 
 
 </div><div className='notion-spacer'></div>
@@ -362,15 +362,15 @@ The default Animator Controllers can be found in the Avatar SDK under Samples.
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-The Expressions section allows you to set the circular menu in your right hand, as well as the VRC Expression Parameters which are synced over the network.
+Expressionsセクションでは、右手の円形メニューと、ネットワーク上で同期されるVRC Expression Parametersを設定できます。
 
 
 
-By default, the Avatar will have 8 basic VRChat emotes. Pressing customize allows you to set their own VRCExpressionMenus and VRCExpressionParameters. 
+デフォルトでは、アバターには8つの基本的なVRChatエモートがあります。`Customize`を押すと、独自のVRCExpressionMenusとVRCExpressionParametersを設定できます。
 
 
 
-For more information, see the [Expressions Menu and Parameters](/docs/Avatars/Expressions-Menu-Params) page. 
+詳細については、[Expressions Menu and Parameters](/docs/Avatars/Expressions-Menu-Params)ページを参照してください。
 
 
 </div><div className='notion-spacer'></div>
@@ -388,7 +388,7 @@ For more information, see the [Expressions Menu and Parameters](/docs/Avatars/Ex
 ---
 
 
-## Advanced Details {#27e7315bfacb4e4781662004f2e4dae9}
+## 詳細設定 {#27e7315bfacb4e4781662004f2e4dae9}
 
 
 ### Lip Sync {#bc2d3447324d412a9195091a19700e83}
@@ -401,19 +401,19 @@ For more information, see the [Expressions Menu and Parameters](/docs/Avatars/Ex
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-This system allows you to specify a GameObject which will be rotated to match the jaw position VRChat estimates you have.
+このシステムでは、VRChatが推定するあごの位置に合わせて回転されるGameObjectを指定できます。
 
 
 
-It has a GameObject field where you can supply the GameObject to be rotated, as well as two pairs of Euler Angles (x, y, z) to specify which rotation your bone should have in the open and close positions.
+回転されるGameObjectを供給するGameObjectフィールドと、開いた位置と閉じた位置でボーンが持つべき回転を指定する2組のオイラー角（x、y、z）があります。
 
 
 
-You can press `Preview` to preview the state, and `Return` to exit the preview.
+`Preview`を押して状態をプレビューし、`Return`を押してプレビューを終了できます。
 
 
 
-VRChat animates the Built-In parameter `Viseme` from 0 to 100 based on volume.
+VRChatは音量に基づいて組み込みパラメータ`Viseme`を0から100までアニメーションします。
 
 
 </div><div className='notion-spacer'></div>
@@ -435,15 +435,15 @@ VRChat animates the Built-In parameter `Viseme` from 0 to 100 based on volume.
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-This system allows you to specify a Mesh which will have a Blend Shape modified to match the jaw position VRChat estimates you have.
+このシステムでは、VRChatが推定するあごの位置に合わせてBlend Shapeが変更されるメッシュを指定できます。
 
 
 
-It has a Skinned Mesh Renderer field where you specify the Skinned Mesh Renderer the have its Blend Shape changed, and when a Skinned Mesh Renderer component present, a Blend Shape dropdown is shown, where you can select the Blend Shape to be used. 
+Blend Shapeを変更するSkinned Mesh Rendererを指定するSkinned Mesh Rendererフィールドがあり、Skinned Mesh Rendererコンポーネントが存在する場合、使用するBlend Shapeを選択できるBlend Shapeドロップダウンが表示されます。
 
 
 
-VRChat animates the Built-In parameter `Viseme` from 0 to 100 based on volume.
+VRChatは音量に基づいて組み込みパラメータ`Viseme`を0から100までアニメーションします。
 
 
 </div><div className='notion-spacer'></div>
@@ -461,7 +461,7 @@ VRChat animates the Built-In parameter `Viseme` from 0 to 100 based on volume.
 #### Viseme Parameter Only
 
 
-VRChat animates the Built-In parameter `Viseme` from 0 to 14 based on the found value, and nothing else.
+VRChatは見つかった値に基づいて組み込みパラメータ`Viseme`を0から14までアニメーションし、それ以外は何もしません。
 
 
 ---
@@ -482,15 +482,15 @@ VRChat animates the Built-In parameter `Viseme` from 0 to 14 based on the found 
 
 
 
-Bones allows for you to select bones and how they rotate. These settings can be set in the `Transforms` and `Rotation States` sections.
+Bonesでは、ボーンとその回転方法を選択できます。これらの設定は`Transforms`と`Rotation States`セクションで設定できます。
 
 
 
-The `Transform` section allows you to set the four bones, two per eye, one per eyelid.
+`Transform`セクションでは、4つのボーン（目ごとに2つ、まぶたごとに1つ）を設定できます。
 
 
 
-The `Rotation States` section allows you to set the rotations for all eyelids for each expression: `Default`, `Closed`, `Looking Up`, `Looking Down`. Note that these rotations aren’t in Euler Angles like the rest of the SDK, but in Quaternions instead. Like the eyes, you can preview with the `Preview` button, and return with the `Return` button.
+`Rotation States`セクションでは、各表情（`Default`、`Closed`、`Looking Up`、`Looking Down`）のすべてのまぶたの回転を設定できます。これらの回転は、SDKの他の部分のようなオイラー角ではなく、クォータニオンであることに注意してください。目と同様に、`Preview`ボタンでプレビューし、`Return`ボタンで戻すことができます。
 
 
 </div><div className='notion-spacer'></div>
@@ -515,19 +515,19 @@ The `Rotation States` section allows you to set the rotations for all eyelids fo
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-The Lower Body section has some settings for lower body with non-full body-tracking. 
+Lower Bodyセクションには、フルボディトラッキング以外での下半身に関するいくつかの設定があります。
 
 
 
-The `Use Auto-Footsteps for 3 and 4 point tracking` toggle decides whether or not to automatically let the humanoid rig take footsteps to align with the upper body when the upper body moves without walking.
+`Use Auto-Footsteps for 3 and 4 point tracking`トグルは、歩かずに上半身が動いたときに、上半身に合わせてHumanoid Rigが自動的に足音を立てるかどうかを決定します。
 
 
 
-The `Force Locomotion animations for 6 point tracking` toggle decides whether or not the avatar uses locomotion animations for the legs when walking. That is, when enabled, the hips and lower body get overridden by the locomotion animations set in the Base animator controller. 
+`Force Locomotion animations for 6 point tracking`トグルは、歩行時にアバターが脚にlocomotionアニメーションを使用するかどうかを決定します。つまり、有効にすると、腰と下半身がBase animator controllerに設定されたlocomotionアニメーションによってオーバーライドされます。
 
 
 
-Note that this behaviour can be overwritten using a `VRC Animator Tracking Control` component.
+この動作は`VRC Animator Tracking Control`コンポーネントを使用して上書きできることに注意してください。
 
 
 </div><div className='notion-spacer'></div>
@@ -552,31 +552,31 @@ Note that this behaviour can be overwritten using a `VRC Animator Tracking Contr
 <div class='notion-column' style={{width: 'calc((100% - (min(32px, 4vw) * 1)) * 0.5)'}}>
 
 
-The Colliders section allows you to modify the default VRC Contact Senders and VRC Phys Bone Colliders set on the avatar.
+Collidersセクションでは、アバターに設定されたデフォルトのVRC Contact SendersとVRC Phys Bone Collidersを変更できます。
 
 
 
-The Hand and Finger colliders in this list get turned into VRC Phys bone colliders which automatically get added to all the VRC Phys Bones in the game.
+このリストのHandとFinger collidersは、ゲーム内のすべてのVRC PhysBonesに自動的に追加されるVRC PhysBone Collidersに変換されます。
 
 
 
-All the colliders in this list get turned into VRC Contact Senders with the corresponding tags set up.
+このリストのすべてのcollidersは、対応するタグが設定されたVRC Contact Sendersに変換されます。
 
 
 
-They are set based on the mapping to the humanoid bone in the Humanoid Rig. This means that non-humanoid avatars don’t have colliders. 
+これらは、Humanoid RigのHumanoidボーンへのマッピングに基づいて設定されます。これは、非Humanoidアバターにはcollidersがないことを意味します。
 
 
 
-For each of the colliders, you can select whether you want the default, custom values, or to have it disabled all together. When using `Custom`, you can control all the fields of a VRC Physbone Collider/VRC Contact Sender, except for the shape, which will always be set to Capsule.
+各collidersについて、デフォルト、カスタム値、または完全に無効にするかを選択できます。`Custom`を使用する場合、常にCapsuleに設定される形状を除いて、VRC Physbone Collider/VRC Contact Senderのすべてのフィールドを制御できます。
 
 
 
-If you press the chain symbol to the left of the Collider, it splits up into L(eft) and R(ight) and you can set the positions per side. 
+Colliderの左側にあるチェーンシンボルを押すと、L(eft)とR(ight)に分割され、サイドごとに位置を設定できます。
 
 
 
-When the `Colliders` drop down is enabled, the collider locations will be shown on your avatar when you have Gizmos enabled in your scene view.
+`Colliders`ドロップダウンが有効になっている場合、シーンビューでGizmosが有効になっているときに、アバター上のcolliderの位置が表示されます。
 
 
 </div><div className='notion-spacer'></div>
@@ -593,4 +593,4 @@ When the `Colliders` drop down is enabled, the collider locations will be shown 
 
 
 ---
-<RightAlignedText>Last Updated: 31 March 2024 08:54:00</RightAlignedText>
+<RightAlignedText>最終更新: 2024年3月31日 08:54:00</RightAlignedText>
